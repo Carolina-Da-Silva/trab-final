@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' type='text/css' media='screen' href='cadastrar.css'>
     <title>cadastro</title>
 </head>
+
 <body>
     <form>
         <div>
@@ -18,7 +20,7 @@
         </div>
         <div>
             <label>Senha<label>
-            <input name="senha">
+                    <input name="senha">
         </div>
         <div>
             <button id="btCadastro">
@@ -41,7 +43,17 @@
             const nome = form.nome.value
             const email = form.email.value
             const senha = form.senha.value
-            const body = JSON.stringify({ nome, email, senha  })
+            const body = JSON.stringify({ nome, email, senha })
+
+            if (nome.trim() == "")
+                return alert("Campo NOME Vazio")
+            
+            if (email.trim() == "")
+                return alert("Campo EMAIL Vazio")
+            
+            if (senha == "") 
+                return alert("Campo SENHA vazio")
+
             const response = await fetch(url, { method, headers, body })
             if (!response.ok)
                 return console.error('Error:', response.statusText)
@@ -55,4 +67,5 @@
         })
     </script>
 </body>
+
 </html>
