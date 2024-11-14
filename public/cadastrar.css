@@ -1,0 +1,132 @@
+/* Reset de Estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corpo da página */
+body {
+    background-color: #f1f3f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Estilo do Formulário */
+form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Título do Formulário */
+form h1 {
+    text-align: center;
+    color: #444;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Estilo das Divs dentro do Formulário */
+form div {
+    margin-bottom: 20px;
+}
+
+/* Estilo das Labels */
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Estilo dos Inputs */
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fafafa;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Foco nos Inputs */
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Estilo dos Botões */
+button {
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    width: 48%; /* Largura dos botões */
+}
+
+/* Estilo do Botão Cadastro */
+#btCadastro {
+    background-color: #007BFF;
+    color: white;
+    margin-right: 4%;
+}
+
+/* Estilo do Botão Voltar */
+#btVoltar {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Efeito de Hover para os Botões */
+button:hover {
+    opacity: 0.9;
+}
+
+/* Efeito de Focus nos Botões */
+button:focus {
+    outline: none;
+    opacity: 1;
+}
+
+/* Alinhamento dos Botões lado a lado */
+form div:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+
+    /* Torna os botões em largura total em telas pequenas */
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Remove o espaço entre os botões em telas pequenas */
+    #btCadastro {
+        margin-right: 0;
+    }
+}
