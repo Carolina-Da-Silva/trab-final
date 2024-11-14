@@ -17,7 +17,7 @@
             </div>
             <div>
                 <label>Ano de publicação</label>
-                <input date="publicacao">
+                <input  type="date" name="publicacao">
             </div>
             <div>
                 <label>Gênero</label>
@@ -36,13 +36,13 @@
     </form>
 
     <script>
-        const form = document.querySelector("form_livro")
+        const form = document.querySelector(".form_livro")
         const btCadastar = document.querySelector("#btCadastrar")
 
         form.addEventListener("submit", async event => {
             event.preventDefault()
             const method = 'POST'
-            const url = '/pglivro'
+            const url = '/livro'
             const headers = { 'Content-Type': 'application/json' }
             const titulo = form.titulo.value
             const publicacao = form.publicacao.value

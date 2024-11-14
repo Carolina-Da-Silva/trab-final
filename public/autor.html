@@ -3,46 +3,50 @@
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Page Title</title>
+    <title>Livro</title>
     <!-- <link rel='stylesheet' type='text/css' media='screen' href='inicial.css'> -->
 </head>
 <body>
     <div> assunto</div>
-    
+
     <form class="form_autor">
-        <div>Cadastro de Autor</div>
+        <div>Cadastro do Autor</div>
             <div>
-                <label>Nome do autor</label>
+                <label>Nome do autor </label>
                 <input name="nomeautor">
             </div>
             <div>
-                <label>Nacionalidade </label>
+                <label>Nacionalidade</label>
                 <input name="nacionalidade">
             </div>
             <div>
-                <label>Biografia</label>
-                <input name="nomeautor">
+                <label>bio</label>
+                <input name="genero">
+            </div>
+            <div>
+                <label>ISBN</label>
+                <input name="isbn">
             </div>
             <div>
                 <button id="btCadastrar">
-                    Cadastrar Autor
+                    Cadastrar Livro
                 </button>
             </div>
         </div>
     </form>
-    
+
     <script>
-        const form = document.querySelector("form_autor")
-        const btCadastrar = document.querySelector("#btCadastrar")
+        const form = document.querySelector("form_livro")
+        const btCadastar = document.querySelector("#btCadastrar")
 
         form.addEventListener("submit", async event => {
             event.preventDefault()
             const method = 'POST'
-            const url = '/pgautor'
+            const url = '/autor'
             const headers = { 'Content-Type': 'application/json' }
-            const nomeautor = form.nomeautor.value
-            const nacionalidade = form.nacionalidade.value
-            const biografia = form.biografia.value
+            const nomeautor= form.nomeautor.value
+            const nacionalidade= form.nacionalidade.value
+            const biografia= form.biografia.value
             const body = JSON.stringify({ nomeautor, nacionalidade, biografia })
 
             if (nomeautor.trim() == "")
@@ -52,14 +56,14 @@
                 return alert("Campo NACIONALIDADE Vazio")
 
             if (biografia.trim() == "")
-                return alert("Campo BIOGRAFIA Vazio")    
-            
+                return alert("Campo BIOGRAFIA Vazio")
+
             const response = await fetch(url, { method, headers, body })
             if (!response.ok)
                 return alert.error('Error:', response.statusText)
             const responseData = await response.json()
             alert("Autor cadastrado")
-            location.href = "editora.html"
+            location.href = "editora.html" 
         })
     </script>
 </body>
