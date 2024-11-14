@@ -11,22 +11,26 @@
 <body>
     <form>
         <div>
-            <label>Nome do autor</label>
-            <input name="nomeautor">
+            <label>Nome </label>
+            <input name="nome">
         </div>
         <div>
-            <label>Nacionalidade</label>
-            <input name="nacionalidade">
+            <label>Email</label>
+            <input name="email">
         </div>
         <div>
-            <label>biografia<label>
-                <input name="biografia">
+            <label>Senha<label>
+                <input type="password" name="senha">
         </div>
         <div>
             <button id="btCadastro">
                 Cadastro
             </button>
-
+        </div>
+        <div>
+            <button id="btVoltar">
+                Voltar
+            </button>
         </div>
     </form>
     <script>
@@ -60,6 +64,9 @@
             location.href = "/"
         })
 
+        btVoltar.addEventListener("click", () => {
+            window.location.href = "/"
+        })
     </script>
 </body>
 
