@@ -10,15 +10,9 @@ const logged: any = {}
 app.use(express.json())
 app.use(express.static(__dirname + '/../public'))
 
+//Página index 
 app.post("/login", async (req, res) => {
     const { login, senha } = req.body
-    //  const tokenAlread = isAlreadyLogged(username)
-    //  if (tokenAlread)
-    //    return res.status(401).json({
-    //      error: "Usuário já está logado", 
-    //      token: tokenAlread
-    //    })
-    
     const db = await connect()
     const user = await db.get(`SELECT * FROM users WHERE email = ? AND senha = ? LIMIT 1`, [login, senha])
     
@@ -33,6 +27,7 @@ app.post("/login", async (req, res) => {
     return 
 })
 
+// página cadastro
 app.get('/users', async (req, res) => {
   const db = await connect()
   const users = await db.all('SELECT * FROM users')
@@ -65,4 +60,36 @@ app.delete('/users/:id', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
+})
+
+// Página livro
+
+app.get('/pglivro', async (req, res) => {
+  const db = await connect()
+  const users = await db.all('SELECT * FROM users')
+  res.json(users)
+})
+
+app.post('/pglivro', async (req, res) => {
+  const db = await connect()
+  const { titulo, publicacao, genero, isbn } = req.body
+  const result = await db.run('INSERT INTO livro (titulo, publicacao, genero, isbn) VALUES (?, ?, ?, ?)', [titulo, publicacao, genero, isbn])
+  const user = await db.get('SELECT * FROM livro WHERE id = ?', [result.lastID])
+  res.json(user)
+})
+
+app.put('/pglivro/:id', async (req, res) => {
+  const db = await connect()
+  const { titulo, publicacao, genero, isbn } = req.body
+  const { id } = req.params
+  await db.run('UPDATE users SET name = ?, email = ? WHERE id = ?', [titulo, publicacao, genero, isbn, id])
+  const user = await db.get('SELECT * FROM users WHERE id = ?', [id])
+  res.json(user)
+})
+
+app.delete('/pglivro/:id', async (req, res) => {
+  const db = await connect()
+  const { id } = req.params
+  await db.run('DELETE FROM users WHERE id = ?', [id])
+  res.json({ message: 'User deleted' })
 })

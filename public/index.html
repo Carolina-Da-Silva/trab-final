@@ -15,7 +15,7 @@
         </div>
         <div>
             <label>Senha</label>
-            <input name="senha">
+            <input type="password" name="senha">
         </div>
         <div>
             <button id="btEntrar">
@@ -28,7 +28,7 @@
     </form>
     <script>
         const form = document.querySelector("form")
-        const btCadastar = document.querySelector("#btCadastrar")
+        const btCadastrar = document.querySelector("#btCadastrar")
 
         form.addEventListener("submit", async event => {
             event.preventDefault()
@@ -43,10 +43,10 @@
                 return alert('Error:', response.statusText) //colocar o erro 
             const responseData = await response.json()
             localStorage.setItem("token", responseData.token)
-            location.href = "inicial.html" 
+            location.href = "livro.html" 
         })
 
-        btCadastar.addEventListener("click", () => {
+        btCadastrar.addEventListener("click", () => {
             window.location.href = "cadastrar.html"
         })
     </script>

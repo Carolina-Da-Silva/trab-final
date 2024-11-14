@@ -18,6 +18,13 @@ export async function connect() {
       nome TEXT,
       email TEXT,
       senha TEXT
+    );
+    
+    CREATE TABLE IF NOT EXISTS livro (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      nome TEXT,
+      email TEXT,
+      senha TEXT
     )
   `)
   
