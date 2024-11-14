@@ -20,12 +20,8 @@
                 <input name="nacionalidade">
             </div>
             <div>
-                <label>bio</label>
-                <input name="genero">
-            </div>
-            <div>
-                <label>ISBN</label>
-                <input name="isbn">
+                <label>biografia</label>
+                <input name="biografia">
             </div>
             <div>
                 <button id="btCadastrar">
@@ -36,7 +32,7 @@
     </form>
 
     <script>
-        const form = document.querySelector("form_livro")
+        const form = document.querySelector(".form_autor")
         const btCadastar = document.querySelector("#btCadastrar")
 
         form.addEventListener("submit", async event => {

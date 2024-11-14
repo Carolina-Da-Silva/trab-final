@@ -32,13 +32,13 @@
         </div>
     </form>
     <script>
-        const form = document.querySelector("form_editora")
+        const form = document.querySelector(".form_editora")
         const btCadastar = document.querySelector("#btCadastrar")
 
         form.addEventListener("submit", async event => {
             event.preventDefault()
             const method = 'POST'
-            const url = '/pgeditora'
+            const url = '/editora'
             const headers = { 'Content-Type': 'application/json' }
             const nomeeditora = form.nomeeditora.value
             const endereco = form.endereco.value

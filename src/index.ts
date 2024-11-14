@@ -65,15 +65,15 @@ app.listen(port, () => {
 // Página livro
 app.get('/livro', async (req, res) => {
   const db = await connect()
-  const livros = await db.all('SELECT * FROM livro')
+  const livros = await db.all('SELECT * FROM livros')
   res.json(livros)
 })
 
 app.post('/livro', async (req, res) => {
   const db = await connect()
   const { titulo, publicacao, genero, isbn } = req.body
-  const result = await db.run('INSERT INTO livro (titulo, publicacao, genero, isbn) VALUES (?, ?, ?, ?)', [titulo, publicacao, genero, isbn])
-  const livro = await db.get('SELECT * FROM livro WHERE id = ?', [result.lastID])
+  const result = await db.run('INSERT INTO livros (titulo, publicacao, genero, isbn) VALUES (?, ?, ?, ?)', [titulo, publicacao, genero, isbn])
+  const livro = await db.get('SELECT * FROM livros WHERE id = ?', [result.lastID])
   res.json(livro)
 })
 
@@ -81,8 +81,8 @@ app.put('/livro/:id', async (req, res) => {
   const db = await connect()
   const { titulo, publicacao, genero, isbn } = req.body
   const { id } = req.params
-  await db.run('UPDATE livro SET titulo = ?, publicacao = ?, genero = ?, isbn = ? WHERE id = ?', [titulo, publicacao, genero, isbn, id])
-  const livro = await db.get('SELECT * FROM livro WHERE id = ?', [id])
+  await db.run('UPDATE livros SET titulo = ?, publicacao = ?, genero = ?, isbn = ? WHERE id = ?', [titulo, publicacao, genero, isbn, id])
+  const livro = await db.get('SELECT * FROM livros WHERE id = ?', [id])
   res.json(livro)
 })
 
@@ -95,32 +95,66 @@ app.delete('/livro/:id', async (req, res) => {
 
 //página autor
 
-app.get('/livro', async (req, res) => {
+app.get('/autor', async (req, res) => {
   const db = await connect()
-  const livros = await db.all('SELECT * FROM livro')
-  res.json(livros)
+  const autores = await db.all('SELECT * FROM autores')
+  res.json(autores)
 })
 
-app.post('/livro', async (req, res) => {
+app.post('/autor', async (req, res) => {
   const db = await connect()
-  const { titulo, publicacao, genero, isbn } = req.body
-  const result = await db.run('INSERT INTO livro (titulo, publicacao, genero, isbn) VALUES (?, ?, ?, ?)', [titulo, publicacao, genero, isbn])
-  const livro = await db.get('SELECT * FROM livro WHERE id = ?', [result.lastID])
-  res.json(livro)
+  const { nomeautor, nacionalidade, biografia } = req.body
+  const result = await db.run('INSERT INTO autores (nomeautor, nacionalidade, biografia) VALUES (?, ?, ?)', [nomeautor, nacionalidade, biografia])
+  const autores = await db.get('SELECT * FROM autores WHERE id = ?', [result.lastID])
+  res.json(autores)
 })
 
-app.put('/livro/:id', async (req, res) => {
+app.put('/autor/:id', async (req, res) => {
   const db = await connect()
-  const { titulo, publicacao, genero, isbn } = req.body
+  const { nomeautor, nacionalidade, biografia } = req.body
   const { id } = req.params
-  await db.run('UPDATE livro SET titulo = ?, publicacao = ?, genero = ?, isbn = ? WHERE id = ?', [titulo, publicacao, genero, isbn, id])
-  const livro = await db.get('SELECT * FROM livro WHERE id = ?', [id])
-  res.json(livro)
+  await db.run('UPDATE autores SET nomeautor = ?, nacionalidade = ?, biografia = ?', [nomeautor, nacionalidade, biografia, id])
+  const autores = await db.get('SELECT * FROM autores WHERE id = ?', [id])
+  res.json(autores)
 })
 
-app.delete('/livro/:id', async (req, res) => {
+app.delete('/autor/:id', async (req, res) => {
   const db = await connect()
   const { id } = req.params
-  await db.run('DELETE FROM livro WHERE id = ?', [id])
-  res.json({ message: 'livro deletado' })
+  await db.run('DELETE FROM autores WHERE id = ?', [id])
+  res.json({ message: 'autores deletado' })
 })
+
+//Página Editora
+
+app.get('/editora', async (req, res) => {
+  const db = await connect()
+  const editoras = await db.all('SELECT * FROM editoras')
+  res.json(editoras)
+})
+
+app.post('/editora', async (req, res) => {
+  const db = await connect()
+  const { nomeeditora, endereco, cnpj } = req.body
+  const result = await db.run('INSERT INTO editoras (nomeeditora, endereco, cnpj) VALUES (?, ?, ?)', [nomeeditora, endereco, cnpj])
+  const editoras = await db.get('SELECT * FROM editoras WHERE id = ?', [result.lastID])
+  res.json(editoras)
+})
+
+app.put('/autor/:id', async (req, res) => {
+  const db = await connect()
+  const { nomeautor, nacionalidade, biografia } = req.body
+  const { id } = req.params
+  await db.run('UPDATE autores SET nomeautor = ?, nacionalidade = ?, biografia = ?', [nomeautor, nacionalidade, biografia, id])
+  const autores = await db.get('SELECT * FROM autores WHERE id = ?', [id])
+  res.json(autores)
+})
+
+app.delete('/autor/:id', async (req, res) => {
+  const db = await connect()
+  const { id } = req.params
+  await db.run('DELETE FROM autores WHERE id = ?', [id])
+  res.json({ message: 'autores deletado' })
+})
+
+
