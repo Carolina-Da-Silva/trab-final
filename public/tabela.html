@@ -23,11 +23,10 @@
             </tr>
         </thead>
         <tbody>
-            <!-- As linhas serão preenchidas com JavaScript -->
+
         </tbody>
     </table>
 
-    <!-- Tabela de Autores -->
     <h2>Autores</h2>
     <table id="tabela-autores">
         <thead>
@@ -39,11 +38,10 @@
             </tr>
         </thead>
         <tbody>
-            <!-- As linhas serão preenchidas com JavaScript -->
+
         </tbody>
     </table>
 
-    <!-- Tabela de Editoras -->
     <h2>Editoras</h2>
     <table id="tabela-editoras">
         <thead>
@@ -55,12 +53,11 @@
             </tr>
         </thead>
         <tbody>
-            <!-- As linhas serão preenchidas com JavaScript -->
+
         </tbody>
     </table>
 
     <script>
-        // Função para carregar os dados
         async function carregarDados() {
             const livrosResponse = await fetch('/livro');
             const livros = await livrosResponse.json();
@@ -71,7 +68,6 @@
             const editorasResponse = await fetch('/editora');
             const editoras = await editorasResponse.json();
 
-            // Preencher a tabela de Livros
             const tabelaLivros = document.getElementById('tabela-livros').getElementsByTagName('tbody')[0];
             livros.forEach(livro => {
                 const row = tabelaLivros.insertRow();
@@ -82,7 +78,6 @@
                 row.insertCell(4).textContent = livro.isbn;
             });
 
-            // Preencher a tabela de Autores
             const tabelaAutores = document.getElementById('tabela-autores').getElementsByTagName('tbody')[0];
             autores.forEach(autor => {
                 const row = tabelaAutores.insertRow();
@@ -92,7 +87,6 @@
                 row.insertCell(3).textContent = autor.biografia;
             });
 
-            // Preencher a tabela de Editoras
             const tabelaEditoras = document.getElementById('tabela-editoras').getElementsByTagName('tbody')[0];
             editoras.forEach(editora => {
                 const row = tabelaEditoras.insertRow();
@@ -102,8 +96,6 @@
                 row.insertCell(3).textContent = editora.cnpj;
             });
         }
-
-        // Carregar os dados ao carregar a página
         window.onload = carregarDados;
     </script>
 

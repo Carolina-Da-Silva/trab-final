@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +5,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Corpo da página */
 body {
-    background-color: #f8f4eb; /* Cor de fundo suave, tons de bege */
-    color: #4a4a4a; /* Texto cinza escuro */
+    background-color: #f8f4eb; 
+    color: #4a4a4a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +15,6 @@ body {
     padding: 20px;
 }
 
-/* Estilo do formulário */
 .form_editora {
     background-color: #fff;
     padding: 40px;
@@ -27,47 +24,41 @@ body {
     max-width: 500px;
 }
 
-/* Título do formulário */
 .form_editora div:first-child {
     text-align: center;
-    font-size: 28px; /* Tamanho de fonte maior */
+    font-size: 28px;
     font-weight: 700;
-    color: #533f22; /* Marrom escuro para o título */
+    color: #533f22; 
     margin-bottom: 40px;
-    font-family: 'Georgia', serif; /* Fonte serifada para dar um toque mais elegante */
+    font-family: 'Georgia', serif;
 }
 
-/* Estilo das labels */
 label {
     display: block;
     font-size: 14px;
     font-weight: 500;
-    color: #623b05; /* Marrom suave */
+    color: #623b05;
     margin-bottom: 6px;
-    text-transform: capitalize; /* Para deixar as primeiras letras maiúsculas */
+    text-transform: capitalize;
 }
 
-/* Estilo dos inputs */
 input {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    border: 2px solid #d4b896; /* Bordas em marrom claro */
+    border: 2px solid #d4b896; 
     border-radius: 6px;
-    background-color: #f1ebe3; /* Cor de fundo em bege claro */
+    background-color: #f1ebe3; 
     transition: all 0.3s ease;
     color: #623b05;
-    margin-bottom: 20px; /* Espaçamento entre os campos */
+    margin-bottom: 20px;
 }
-
-/* Efeito de foco nos inputs */
 input:focus {
     outline: none;
-    border-color: #8a6e48; /* Borda marrom escuro ao focar */
-    background-color: #fff; /* Foco deixa o fundo branco */
+    border-color: #8a6e48; 
+    background-color: #fff; 
 }
 
-/* Estilo do botão */
 button {
     padding: 12px 20px;
     font-size: 16px;
@@ -75,37 +66,36 @@ button {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background-color: #007BFF; ; /* Cor marrom escuro para o botão */
+    background-color: #007BFF; 
     color: white;
-    width: auto; /* Não deixar o botão muito largo */
-    margin-top: 20px; /* Espaço entre o botão e os campos */
+    width: auto;
+    margin-top: 20px;
     transition: background-color 0.3s ease;
 }
 
-/* Efeito de hover no botão */
+
 button:hover {
-    background-color: #007BFF; ; /* Cor mais escura de marrom ao passar o mouse */
+    background-color: #007BFF; 
 }
 
-/* Estilo de foco no botão */
+
 button:focus {
     outline: none;
 }
 
-/* Estilo do botão de Voltar */
+
 #btVoltar {
-    background-color: #f44336; /* Vermelho para destacar o botão de Voltar */
+    background-color: #f44336;
     margin-top: 10px;
 }
 
-/* Responsividade para telas pequenas */
 @media (max-width: 480px) {
     .form_editora {
         padding: 20px;
     }
 
     button {
-        width: 100%; /* Botão ocupa 100% da largura em dispositivos móveis */
+        width: 100%; 
         margin-top: 20px;
     }
 }
