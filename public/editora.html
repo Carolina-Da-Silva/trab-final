@@ -58,6 +58,7 @@
                 return console.error('Error:', response.statusText)
             const responseData = await response.json()
             alert("Editora cadastrada")
+            location.href = "tabela.html" 
         })
         
         btVoltar.addEventListener("click", () => {
