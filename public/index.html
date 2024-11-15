@@ -31,7 +31,6 @@
         const btCadastrar = document.querySelector("#btCadastrar")
         const btEntrar = document.querySelector("#btEntrar")
 
-        // Evento de submit do formulário
         form.addEventListener("submit", async event => {
             event.preventDefault()
             const method = 'POST'
@@ -42,17 +41,15 @@
             const body = JSON.stringify({ login, senha })
             const response = await fetch(url, { method, headers, body })
             if (!response.ok)
-               return alert('Error:', response.statusText) // Exibe o erro 
+               return alert('Error:', response.statusText)
             const responseData = await response.json()
             localStorage.setItem("token", responseData.token)
             location.href = "livro.html" 
         })
 
-        // Evento de clique no botão Cadastrar
         btCadastrar.addEventListener("click", (event) => {
-            // Impede o envio do formulário
             event.preventDefault()
-            window.location.href = "cadastrar.html" // Redireciona para a página de cadastro
+            window.location.href = "cadastrar.html"
         })
     </script>
 </body>
